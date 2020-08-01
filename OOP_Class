@@ -1,0 +1,96 @@
+
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+#define PI ( 3.141592 )
+
+
+/**********************************************
+AUTHOR	: 임경수
+NAME	: getSwap
+PARMS	: [IN] nX, nY 값을 바꿀 2개의 정수
+		  [Out] 없음
+RETURNS	: <없음>
+COMMENTS: <레퍼런스를 사용하여 서로 값을 바꾸는 함수>
+***********************************************/
+int getSwap( int &nX, int &nY )
+{
+	int nTemporary = 0;
+
+	cout << "In Swap(): rx = " << nX  << ", ry = " << nY << endl;
+	
+	nTemporary = nX;
+	nX = nY;
+	nY = nTemporary;
+
+	cout << "In Swap(): rx = " << nX  << ", ry = " << nY << endl;
+
+	return 0;
+}
+
+/**********************************************
+AUTHOR	: 임경수
+NAME	: getCylinder
+PARMS	: [IN] nRadian, dHeight 원기둥의 반지름, 원기둥 높이
+		  [Out] dVolume 원기둥 부피
+RETURNS	: <원기둥의 부피>
+COMMENTS: <원기둥의 반지름과 높이입력시 부피를 구하는 함수, 높이를 입력 하지 않을시 기본값 1.0>
+***********************************************/
+double getCylinder( double dRadius, double dHeight = 1.0 )
+{
+	double dVolume = 0.0;
+
+	dVolume = dRadius * dRadius * PI * dHeight;
+
+	cout << fixed;
+	cout.precision( 2 );
+	cout << "dR = " << dRadius << ", dH = default :dV = " << dVolume << endl;
+
+	return dVolume;
+}
+void assignment1();
+void assignment2();
+int main()
+{
+	assignment1();
+	assignment2();
+	return 0;
+
+}
+/**********************************************
+AUTHOR	: 임경수
+NAME	: assignment1
+PARMS	: [IN]  없음
+		  [Out] 없음
+RETURNS	: < 없음 >
+COMMENTS: < 과제 7-2 첫번째 과제 >
+***********************************************/
+void assignment1()
+{
+
+	int nA = 100, nB = 200;
+	int &nReferenceA = nA; 
+	int &nReferenceB = nB; 
+
+	cout << "swap() 호출 전: nA = " << nA << ", nB = " << nB << endl;
+	getSwap( nReferenceA, nReferenceB );
+	cout << "swap() 호출 후: nA = " << nA << ", nB = " << nB << endl;
+	cout << "\n\n" << endl;
+}
+/**********************************************
+AUTHOR	: 임경수
+NAME	: assignment2
+PARMS	: [IN]  없음
+		  [Out] 없음
+RETURNS	: < 없음 >
+COMMENTS: < 과제 7-2 두번째 과제 >
+***********************************************/
+void assignment2()
+{
+	getCylinder( 4.0, 3.0 );
+	getCylinder( 4.0 );
+}
+
+
